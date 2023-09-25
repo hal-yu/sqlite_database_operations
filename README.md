@@ -9,13 +9,13 @@ First I loaded the NY Presbyerian Hospital dataset as nypdf. I cleansed the data
 
 ### SQLite Database Setup
 1. Import create_engine and sqlite3 by using:
-   '''from sqlalchemy import create_engine'''
-   '''import sqlite3'''
+   ```from sqlalchemy import create_engine```
+   ```import sqlite3```
 2. Create a local database using:
-   '''conn = sqlite3.connect('health.db')'''
-   '''c = conn.cursor()'''
+   ```conn = sqlite3.connect('health.db')```
+   ```c = conn.cursor()```
 3. Create table and include type of data:
-   '''c.execute("""
+   ```c.execute("""
       CREATE TABLE NYP_healthcare
       (
           'revcode text',
@@ -28,9 +28,9 @@ First I loaded the NY Presbyerian Hospital dataset as nypdf. I cleansed the data
 
       """)
 
-      conn.commit()'''
+      conn.commit()```
 4. Insert data into tabla:
-   '''sql_query = """
+   ```sql_query = """
       INSERT INTO NYP_healthcare (
              revcode,
              description,
@@ -49,11 +49,11 @@ First I loaded the NY Presbyerian Hospital dataset as nypdf. I cleansed the data
          );
       """
 
-     print(sql_query)'''
+     print(sql_query)```
 5. Commit it into the database using:
-   '''conn.commit()'''
+   ```conn.commit()```
 6. Checking if rows have been populated in table:
-   '''query = """
+   ```query = """
 
       SELECT *
       from NYP_healthcare;
@@ -61,9 +61,9 @@ First I loaded the NY Presbyerian Hospital dataset as nypdf. I cleansed the data
       """
 
       c.execute(query)
-      print(c.fetchall())'''
+      print(c.fetchall())```
 7. Create engine to connect to the sqlite database:
-   '''engine = create_engine('sqlite:///health.db')'''
+   ```engine = create_engine('sqlite:///health.db')```
 8. Display values created:
-   '''NYP_healthcare = pd.read_sql("select * from NYP_healthcare;", conn)
-      NYP_healthcare'''
+   ```NYP_healthcare = pd.read_sql("select * from NYP_healthcare;", conn)
+      NYP_healthcare```
