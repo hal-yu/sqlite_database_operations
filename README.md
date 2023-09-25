@@ -65,5 +65,5 @@ First I loaded the NY Presbyerian Hospital dataset as nypdf. I cleansed the data
 7. Create engine to connect to the sqlite database:
    ```engine = create_engine('sqlite:///health.db')```
 8. Display values created:
-   ```NYP_healthcare = pd.read_sql("select * from NYP_healthcare;", conn)
-      NYP_healthcare```
+   ```NYP_healthcare = pd.read_sql("select * from NYP_healthcare;", conn)```
+   ```NYP_healthcare```
