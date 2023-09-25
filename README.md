@@ -9,7 +9,7 @@ First I loaded the NY Presbyerian Hospital dataset as nypdf. I cleansed the data
 
 ### SQLite Database Setup
 1. Import create_engine and sqlite3 by using:
-   from sqlalchemy import create_engine
+   > from sqlalchemy import create_engine
    import sqlite3
 2. Create a local database using:
    conn = sqlite3.connect('health.db')
