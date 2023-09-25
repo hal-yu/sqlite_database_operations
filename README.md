@@ -10,60 +10,60 @@ First I loaded the NY Presbyerian Hospital dataset as nypdf. I cleansed the data
 ### SQLite Database Setup
 1. Import create_engine and sqlite3 by using:
    > from sqlalchemy import create_engine
-   import sqlite3
+   > import sqlite3
 2. Create a local database using:
-   conn = sqlite3.connect('health.db')
-   c = conn.cursor()
+   > conn = sqlite3.connect('health.db')
+   > c = conn.cursor()
 3. Create table and include type of data:
-   c.execute("""
-   CREATE TABLE NYP_healthcare
-   (
-       'revcode text',
-       'description text',
-       'grosscharges float',
-       'discountedcashprice float',
-       'minimumnegotiatedcharge float',
-       'maximumnegotiatedcharge float'
-      );
+   > c.execute("""
+      CREATE TABLE NYP_healthcare
+      (
+          'revcode text',
+          'description text',
+          'grosscharges float',
+          'discountedcashprice float',
+          'minimumnegotiatedcharge float',
+          'maximumnegotiatedcharge float'
+         );
 
-   """)
+      """)
 
-   conn.commit()
+      conn.commit()
 4. Insert data into tabla:
-   sql_query = """
-   INSERT INTO NYP_healthcare (
-          revcode,
-          description,
-          grosscharges,
-          discountedcashprice,
-          minimumnegotiatedcharge,
-          maximumnegotiatedcharge
-      )
-      VALUES (
-      '0260',
-      'HC IV INFUSION HYDRATION INITIAL 31 MIN-1HR',
-      648.00,
-      648.00,
-      253.05,
-      838.20
-      );
-   """
+   > sql_query = """
+      INSERT INTO NYP_healthcare (
+             revcode,
+             description,
+             grosscharges,
+             discountedcashprice,
+             minimumnegotiatedcharge,
+             maximumnegotiatedcharge
+         )
+         VALUES (
+         '0260',
+         'HC IV INFUSION HYDRATION INITIAL 31 MIN-1HR',
+         648.00,
+         648.00,
+         253.05,
+         838.20
+         );
+      """
 
-  print(sql_query)
+     print(sql_query)
 5. Commit it into the database using:
-   conn.commit()
+   > conn.commit()
 6. Checking if rows have been populated in table:
-   query = """
+   > query = """
 
-   SELECT *
-   from NYP_healthcare;
+      SELECT *
+      from NYP_healthcare;
 
-   """
+      """
 
-   c.execute(query)
-   print(c.fetchall())
+      c.execute(query)
+      print(c.fetchall())
 7. Create engine to connect to the sqlite database:
-   engine = create_engine('sqlite:///health.db')
+   > engine = create_engine('sqlite:///health.db')
 8. Display values created:
-   NYP_healthcare = pd.read_sql("select * from NYP_healthcare;", conn)
-   NYP_healthcare
+   > NYP_healthcare = pd.read_sql("select * from NYP_healthcare;", conn)
+      NYP_healthcare
